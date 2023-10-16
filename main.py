@@ -22,7 +22,7 @@ import torch
 from torch.utils.tensorboard import SummaryWriter
 import imageio
 import configargparse
-import prop_physical
+
 import prop_model
 import utils
 import params
@@ -52,6 +52,7 @@ def main():
     # Propagations
     camera_prop = None
     if opt.citl:
+        import prop_physical
         camera_prop = prop_physical.PhysicalProp(*(params.hw_params(opt))).to(dev)
     sim_prop = prop_model.model(opt)
 

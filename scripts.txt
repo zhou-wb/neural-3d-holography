@@ -1,0 +1,8 @@
+# Run naive SGD
+$c=1; $i=0; $your_out_path='./results_first';
+
+# RGB supervision
+python main.py --data_path=./data/test/rgb --out_path=${your_out_path} --channel=$c --target=rgb --loss_func=l2 --lr=0.01 --num_iters=1000 --eval_plane_idx=$i
+
+# RGBD supervision
+python main.py --data_path=./data/test --out_path=${your_out_path} --channel=$c --target=rgbd --loss_func=l2 --lr=0.01 --num_iters=1000
